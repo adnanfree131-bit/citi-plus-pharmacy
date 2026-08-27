@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Citi Plus Cash Book</title>
+  <meta name="theme-color" content="#161513" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta name="citiplus-build" content="v7-dock" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css?v=7" />
+</head>
+<body>
+  <div id="gate" class="gate">
+    <div class="gate-card">
+      <p class="eyebrow">Citi Plus Pharmacy</p>
+      <h1>Password</h1>
+      <p class="lede">Enter the shop password to open the cash book.</p>
+      <form id="gate-form">
+        <label for="pw">Password</label>
+        <input id="pw" type="password" autocomplete="current-password" required />
+        <p id="gate-err" class="err hidden"></p>
+        <button type="submit" class="btn btn-ink">Open cash book</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="app" class="app hidden">
+    <aside class="side">
+      <div class="brand">
+        <span class="mark">+</span>
+        <div>
+          <p class="brand-name">Citi Plus</p>
+          <p class="brand-sub">Pharmacy cash book</p>
+        </div>
+      </div>
+      <nav class="side-nav" id="side-nav"></nav>
+      <div class="side-foot">
+        <a class="btn btn-light" href="#/record">+ Record</a>
+        <button class="btn btn-ghost" id="lock-btn" type="button">Lock</button>
+      </div>
+    </aside>
+
+    <div class="stage">
+      <header class="top">
+        <div class="top-row">
+          <div>
+            <p class="brand-mobile">Citi Plus</p>
+            <h1 id="page-title">Dashboard</h1>
+          </div>
+          <button class="btn btn-outline mobile-only" id="lock-btn-m" type="button">Lock</button>
+        </div>
+        <div class="period-row" id="period-row">
+          <button class="period-select" id="period-btn" type="button">This month</button>
+          <div class="dates-wrap">
+            <button class="dates-btn" id="dates-btn" type="button" aria-haspopup="dialog">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              Dates
+            </button>
+            <div class="cal-pop hidden" id="cal-pop" role="dialog" aria-label="Small calendar">
+              <div class="cal-head">
+                <button type="button" id="cal-prev" aria-label="Previous month">‹</button>
+                <p id="cal-label">August 2026</p>
+                <button type="button" id="cal-next" aria-label="Next month">›</button>
+              </div>
+              <div class="cal-week">
+                <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
+              </div>
+              <div class="cal-grid" id="cal-grid"></div>
+              <p class="cal-hint" id="cal-hint">Tap a start day, then an end day</p>
+              <div class="cal-actions">
+                <button class="btn btn-ghost-sm" id="cal-clear" type="button">Clear</button>
+                <button class="btn btn-ink-sm" id="cal-done" type="button">Done</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="period-sheet hidden" id="period-sheet">
+          <button data-period="today">Today</button>
+          <button data-period="thisMonth">This month</button>
+          <button data-period="lastMonth">Last month</button>
+          <button data-period="last90">Last 90 days</button>
+          <button data-period="year">This year</button>
+          <button data-period="all">All time</button>
+        </div>
+      </header>
+      <main id="main" class="main"></main>
+    </div>
+
+    <nav class="tabs" id="tabs"></nav>
+  </div>
+
+  <script src="./app.js?v=7"></script>
+</body>
+</html>
